@@ -1,18 +1,23 @@
 import wollok.game.*
 import vehiculos.*
+import mapa.*
 
 
 
 program corsasEnElGame {
 	var personaje = new Corsa()
 	
-	game.title("Cars")
+ 
+	game.title("cars")
 	game.height(15)
 	game.width(15)
-	game.ground("asfalto.jpg")
+	game.ground("asflato.jpg")
+	game.addVisual(paredSana)
 	game.addVisual(personaje)
 	personaje.configurarTeclado()
 	
 	
+	
 	game.start()
 }
+

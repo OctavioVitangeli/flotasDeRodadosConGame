@@ -40,8 +40,11 @@ class Dependencia {
 	
 	method totalPasajeros(){return registroDePedidos.sum({pedidos => pedidos.pasajeros()})}
 	
-	method colorIncompatible(color){} 
+	method caulNoPuede(){ return not registroDePedidos.any({pedidos => pedidos.puedeSeuplirPedidos() }) }
 	
+	method relajarTodos(){ registroDePedidos.forEach({ pedidos => pedidos.relajar()}) }
+	
+	method todosSonIncompatibles(color){ registroDePedidos.all({ pedidos => pedidos.coloresIncompatibles() == color }) }
 }
 	class Pedidos{
 		var distancia
@@ -49,7 +52,6 @@ class Dependencia {
 		var pasajeros
 		var coloresIncompatibles = []
 		
-		method relajar(){return tiempoMax - 1}
 		method acelerar(){return tiempoMax + 1}
 		method agregarColores(color){coloresIncompatibles.add(color)}
 		method setTiempo(tiempo){tiempoMax = tiempo}

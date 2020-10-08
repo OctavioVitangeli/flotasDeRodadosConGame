@@ -1,4 +1,5 @@
 import wollok.game.*
+import mapa.*
 
 object azul {}
 object rojo {}
@@ -20,6 +21,9 @@ class Corsa {
 		keyboard.v().onPressDo({image = "autoverde.png"})
 		keyboard.r().onPressDo({image = "autitorojo.png"})
 		self.configurarMovimiento()
+	}
+	method chocar(){
+		return position == paredSana.position()
 	}
 	
 	
@@ -126,3 +130,6 @@ object motorBataton {
 	method velocidadMaxima(){return velocidad}
 	method peso(){return peso}
 }
+
+
+
