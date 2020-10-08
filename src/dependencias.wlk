@@ -34,7 +34,7 @@ class Dependencia {
 	method esGrande() {
 		return cantidadDeEmpleados >= 40 and flota.size() >= 5}
 	
-	method agregrarPedidos(pedido){registroDePedidos.add(pedido)}
+	method agregarPedidos(pedido){registroDePedidos.add(pedido)}
 	
 	method removerPedido(pedido){registroDePedidos.remove(pedido)}
 	
@@ -44,7 +44,9 @@ class Dependencia {
 	
 	method relajarTodos(){ registroDePedidos.forEach({ pedidos => pedidos.relajar()}) }
 	
-	method todosSonIncompatibles(color){ registroDePedidos.all({ pedidos => pedidos.coloresIncompatibles() == color }) }
+	method todosSonIncompatibles(color){ return registroDePedidos.all({ pedidos => pedidos.coloresIncompatibles() == color }) }
+
+
 }
 	class Pedidos{
 		var distancia
@@ -52,7 +54,9 @@ class Dependencia {
 		var pasajeros
 		var coloresIncompatibles = []
 		
+		method tiempoMax(){return tiempoMax}
 		method acelerar(){return tiempoMax + 1}
+		method relajar(){return tiempoMax -1}
 		method agregarColores(color){coloresIncompatibles.add(color)}
 		method setTiempo(tiempo){tiempoMax = tiempo}
 		method setDistancia(kms){distancia = kms}

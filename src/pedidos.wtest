@@ -1,0 +1,30 @@
+import dependencias.*
+import vehiculos.*
+test "pedidos" {
+	const deportes = new Dependencia(cantidadDeEmpleados=45)	
+	const auto1 = new Corsa(color=rojo)
+	const auto2 = new Corsa(color=cremita)
+	const pedido1 = new Pedidos(distancia=960,tiempoMax=8,pasajeros=4)
+	const pedido2 = new Pedidos(distancia=1050,tiempoMax=6,pasajeros=6)
+	pedido1.agregarColores(bordo)
+	pedido1.agregarColores(cremita)
+	pedido2.agregarColores(rojo)
+	pedido2.agregarColores(verde)
+	assert.equals(120,pedido1.velocidadRequerida())
+	assert.equals(true,pedido1.puedeSuplirPedido(auto1))
+	assert.equals(false,pedido2.puedeSuplirPedido(auto1))
+	assert.equals(175,pedido2.velocidadRequerida())
+	assert.equals(false,pedido2.puedeSuplirPedido(auto2))
+	assert.equals(9,pedido1.acelerar())
+	assert.equals(5,pedido2.relajar())
+	deportes.agregarAFlota(auto1)
+	deportes.agregarAFlota(auto2)
+	deportes.relajarTodos()
+	assert.equals(8,pedido1.tiempoMax())
+	assert.equals(6,pedido2.tiempoMax())
+	
+	
+	
+	
+
+}
