@@ -1,14 +1,15 @@
 import wollok.game.*
 import vehiculos.*
 
-object paredRota{
-	var property imgae = "pared-rota.png"
-}
 
-object paredSana{
-	var property position = game.at(5,8)
-	var property image = "pared-dura.jpg"
-	
-	
-		
-}
+class Pared {
+	 var property dureza = 3
+	 var property position = game.origin()
+	 var property image = "pareddura.jpg"
+	 
+	 method chocar(){ 
+	 	dureza = 0.max(dureza - 1)
+	 	if( self.dureza() == 2 ){self.image("pared2.png")}
+	 	else self.image("pared3.jpg")
+	 }
+}	

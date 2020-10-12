@@ -5,16 +5,16 @@ import mapa.*
 
 
 program corsasEnElGame {
-	var personaje = new Corsa()
+	const  auto1 = new Corsa()
 	
- 
+	
 	game.title("cars")
 	game.height(15)
 	game.width(15)
 	game.ground("asflato.jpg")
-	game.addVisual(paredSana)
-	game.addVisual(personaje)
-	personaje.configurarTeclado()
+	game.addVisual(auto1)
+	
+	auto1.configurarTeclado()
 	
 	
 	

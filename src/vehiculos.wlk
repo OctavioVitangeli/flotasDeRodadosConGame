@@ -12,44 +12,60 @@ class Corsa {
 	var property position = game.at(3,3)
 	var property color = null 
 	var property image = "autitorojo.png"
+	const posiciones = []
+	
 	method capacidad() { return 4 }
+	
 	method velocidadMaxima() { return 150 }
+	
 	method peso() { return 1300 }
 	
 	method configurarTeclado(){
 		keyboard.a().onPressDo({image = "autoazul.png"})
 		keyboard.v().onPressDo({image = "autoverde.png"})
 		keyboard.r().onPressDo({image = "autitorojo.png"})
-		self.configurarMovimiento()
-	}
-	method chocar(){
-		return position == paredSana.position()
+		keyboard.up().onPressDo({ self.moverNorte()})
+		keyboard.down().onPressDo({self.moverSur()})
+		keyboard.left().onPressDo({self.moverOeste()})
+		keyboard.right().onPressDo({self.moverEste()})
+		
 	}
 	
-	
-	method configurarMovimiento(){
-		keyboard.up().onPressDo({
+		
+	method moverNorte(){
 			if(self.position().y() < game.height() - 1){
 				self.position(self.position().up(1))
-			}
-		})
-		keyboard.down().onPressDo({
+				posiciones.add(self.position())	}
+		}
+		
+	method moverSur(){
 			if(self.position().y() > 0){
 				self.position(self.position().down(1))
-			}
-		})
-		keyboard.left().onPressDo({
+				posiciones.add(self.position()) }
+		}
+		
+	method moverOeste(){
 			if(self.position().x() > 0){
 				self.position(self.position().left(1))
-			}
-		})
-		keyboard.right().onPressDo({
+				posiciones.add(self.position()) }
+		}
+		
+	method moverEste(){
 			if(self.position().x() < game.width() - 1){
 				self.position(self.position().right(1))
-			}
-		})
+				posiciones.add(self.position()) }
+		}
+	
+	
+	
+	method pasoPor(posicion) { return posiciones.contains(posicion)}
+	
+	method pasoPorFila(numero){return posiciones.map({ posicion => posicion.x() }).contains(numero) }
+	
+	
 	}
-}
+
+		
 	
 
 class Kwid {
@@ -111,22 +127,22 @@ object interiorComodo {
 }
 
 object interiorPopular {
-	var capacidad = 12
-	var peso = 1000
+	const capacidad = 12
+	const peso = 1000
 	method capacidad(){return capacidad}
 	method peso(){return peso}
 }
 
 object motorPulenta {
-	var peso = 800
-	var velocidad = 130
+	const peso = 800
+	const velocidad = 130
 	method velocidadMaxima(){return velocidad}
 	method peso(){return peso}
 }
 
 object motorBataton {
-	var peso = 500
-	var velocidad = 80
+	const peso = 500
+	const velocidad = 80
 	method velocidadMaxima(){return velocidad}
 	method peso(){return peso}
 }

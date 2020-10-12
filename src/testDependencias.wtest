@@ -8,11 +8,7 @@ test "deportes y cultura"{
 	const corsaV = new Corsa(color=verde)
 	const corsaA = new Corsa(color=azul)
 	const kwid1 = new Kwid(tieneTanqueAdicional=true)
-	const especial1 = new AutoEspecial()
-	especial1.capacidad(5)
-	especial1.velocidadMaxima(160)
-	especial1.peso(1200)
-	especial1.color(cremita)
+	const especial1 = new AutoEspecial(capacidad=5,color=cremita,velocidadMaxima=160,capacidad=5,peso=1200)
 	const kwid2 = new Kwid(tieneTanqueAdicional= true)
 	const kwid3 = new Kwid(tieneTanqueAdicional= true)
 	const kwid4 = new Kwid(tieneTanqueAdicional= false)
@@ -45,17 +41,5 @@ test "deportes y cultura"{
 	assert.equals(false,cultura.esGrande())
 	assert.equals(5,cultura.capacidadFaltante())
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
-}

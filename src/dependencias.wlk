@@ -1,8 +1,9 @@
 import vehiculos.*
 
 class Dependencia {
-	var flota = []	
-	var registroDePedidos = []
+	const flota = []	
+	const registroDePedidos = []
+	
 	var property cantidadDeEmpleados
 	
 	method agregarAFlota(vehiculo) { flota.add(vehiculo) }
@@ -40,7 +41,7 @@ class Dependencia {
 	
 	method totalPasajeros(){return registroDePedidos.sum({pedidos => pedidos.pasajeros()})}
 	
-	method caulNoPuede(){ return not registroDePedidos.any({pedidos => pedidos.puedeSeuplirPedidos() }) }
+	method caulNoPuede(color){ return not registroDePedidos.any({pedidos => pedidos.puedeSuplirPedido(color) }) }
 	
 	method relajarTodos(){ registroDePedidos.forEach({ pedidos => pedidos.relajar()}) }
 	
@@ -52,8 +53,10 @@ class Dependencia {
 		var distancia
 		var tiempoMax
 		var pasajeros
-		var coloresIncompatibles = []
+		const coloresIncompatibles = []
 		
+		method coloresIncompatibles(){return coloresIncompatibles}
+		method pasajeros(){return pasajeros}
 		method tiempoMax(){return tiempoMax}
 		method acelerar(){return tiempoMax + 1}
 		method relajar(){return tiempoMax -1}
